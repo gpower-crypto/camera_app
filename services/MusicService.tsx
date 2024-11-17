@@ -1,7 +1,7 @@
 // MusicService.ts
-import axios from 'axios';
+import axios from "axios";
 
-const API_KEY = 'e9aThOGZ.X3Tse2ofuGHmLUf1qn1WcuOydafMzAwS'; // Replace with your actual API key
+const API_KEY = "e9aThOGZ.X3Tse2ofuGHmLUf1qn1WcuOydafMzAwS"; // Replace with your actual API key
 
 export interface MusicData {
   music_url: string;
@@ -9,7 +9,7 @@ export interface MusicData {
 
 export async function generateMusic(prompt: string): Promise<MusicData | null> {
   const apiUrl =
-    'https://model-vq0l722q.api.baseten.co/environments/production/predict';
+    "https://model-vq0l722q.api.baseten.co/environments/production/predict";
 
   try {
     const response = await axios.post<MusicData>(
@@ -18,13 +18,13 @@ export async function generateMusic(prompt: string): Promise<MusicData | null> {
       {
         headers: {
           Authorization: `Api-Key ${API_KEY}`,
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     );
     return response.data;
   } catch (error) {
-    console.error('Error generating music:', error);
+    console.error("Error generating music:", error);
     return null;
   }
 }
